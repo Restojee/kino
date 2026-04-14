@@ -1,0 +1,61 @@
+.UiIconInput {
+  display: inline-flex;
+  align-items: center;
+  height: 33px;
+  background: var(--bk-color-overlay-default);
+  border-radius: var(--bk-radius-md);
+  overflow: hidden;
+  transition: width 0.25s ease;
+  width: 33px;
+
+  &_expanded {
+    width: 421px;
+  }
+
+  &__button {
+    flex: 0 0 33px;
+    width: 33px;
+    height: 33px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--bk-color-text-primary, currentColor);
+  }
+
+  &__input {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 var(--bk-spacing-15) 0 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--bk-font-family);
+    font-size: var(--bk-font-size-search);
+    font-weight: var(--bk-font-weight-regular);
+    color: var(--bk-color-text-primary);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease 0.05s;
+
+    &::placeholder {
+      color: var(--bk-color-secondary-contrast);
+    }
+  }
+
+  &_expanded &__input {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (max-width: 600px) {
+    &_expanded {
+      width: 260px;
+    }
+  }
+}

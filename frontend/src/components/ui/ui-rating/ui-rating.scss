@@ -1,0 +1,38 @@
+.UiRating {
+  display: inline-flex;
+  gap: var(--spacing-xs);
+
+  .star {
+    background: transparent;
+    border: none;
+    font-size: var(--font-xxl);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    color: var(--color-text-muted);
+    transition: transform var(--transition-fast),
+    color var(--transition-fast);
+
+    &:hover:not(:disabled) {
+      transform: scale(1.2);
+    }
+
+    &.active,
+    &.highlighted {
+      color: var(--color-rating);
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  &.readonly {
+    .star {
+      cursor: default;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@import "../../../styles/mixins";
+
+.EditableField {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bk-spacing-10);
+  position: relative;
+  width: 100%;
+
+  &_layout-block {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &_editing {
+    width: 100%;
+
+    > .UiInput,
+    > .UiTextarea,
+    > .UiSelect {
+      width: 100%;
+      flex: 1 1 auto;
+    }
+  }
+
+  &__display {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__pencil {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f3f8;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #626071;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 0.15s ease,
+    background 0.15s ease;
+
+    &:hover {
+      opacity: 1;
+      background: #ede9f0;
+    }
+  }
+
+  &:hover &__pencil,
+  &:focus-within &__pencil {
+    opacity: 1;
+  }
+
+  &__actions {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  &__action {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    line-height: 1;
+
+    &--save {
+      background: #626071;
+      color: #ffffff;
+
+      &:hover {
+        filter: brightness(1.08);
+      }
+    }
+
+    &--cancel {
+      background: #f5f3f8;
+      color: #26233a;
+      border-color: #ede9f0;
+
+      &:hover {
+        background: #ede9f0;
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.UiIconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--bk-icon-btn-size, 36px);
+  height: var(--bk-icon-btn-size, 36px);
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease,
+  color 0.15s ease,
+  transform 0.15s ease;
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.92);
+  }
+
+  &_variant-ghost {
+    background: transparent;
+    color: #9a95a6;
+
+    &:hover:not(:disabled) {
+      background: #f5f3f8;
+      color: #26233a;
+    }
+  }
+
+  &_variant-primary {
+    background: var(--bk-color-primary);
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background: #fa6a82;
+    }
+  }
+
+  &_variant-secondary {
+    background: #f5f3f8;
+    color: #626071;
+
+    &:hover:not(:disabled) {
+      background: #ebe6f0;
+    }
+  }
+
+  &_variant-dark {
+    background: linear-gradient(135deg, #626071 0%, #4a4858 100%);
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.08);
+    }
+  }
+
+  &_variant-danger {
+    background: transparent;
+    color: #9a95a6;
+
+    &:hover:not(:disabled) {
+      background: #fef1f3;
+      color: #c5364b;
+    }
+  }
+}

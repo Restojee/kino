@@ -1,0 +1,61 @@
+.UiInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition: var(--transition-base);
+
+  &:focus-within {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  &__native {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: var(--spacing-md);
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: var(--font-md);
+    font-family: inherit;
+    color: var(--color-text);
+
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__adornment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    flex: 0 0 auto;
+
+    &--leading {
+      padding-left: var(--spacing-md);
+    }
+
+    &--trailing {
+      padding-right: var(--spacing-sm, 6px);
+    }
+  }
+
+  &_has-leading &__native {
+    padding-left: var(--spacing-sm, 6px);
+  }
+
+  &_has-trailing &__native {
+    padding-right: var(--spacing-sm, 6px);
+  }
+}

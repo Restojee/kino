@@ -1,0 +1,60 @@
+.UiCol {
+  display: flex;
+  flex-direction: column;
+
+  &_gap-xs {
+    gap: var(--spacing-xs);
+  }
+
+  &_gap-sm {
+    gap: var(--spacing-sm);
+  }
+
+  &_gap-md {
+    gap: var(--spacing-md);
+  }
+
+  &_gap-lg {
+    gap: var(--spacing-lg);
+  }
+
+  &_gap-xl {
+    gap: var(--spacing-xl);
+  }
+
+  &_align-start {
+    align-items: flex-start;
+  }
+
+  &_align-center {
+    align-items: center;
+  }
+
+  &_align-end {
+    align-items: flex-end;
+  }
+
+  &_align-stretch {
+    align-items: stretch;
+  }
+
+  &_justify-start {
+    justify-content: flex-start;
+  }
+
+  &_justify-center {
+    justify-content: center;
+  }
+
+  &_justify-end {
+    justify-content: flex-end;
+  }
+
+  &_justify-between {
+    justify-content: space-between;
+  }
+
+  &_justify-around {
+    justify-content: space-around;
+  }
+}

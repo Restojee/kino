@@ -1,0 +1,9 @@
+.MovieCarousel {
+  width: 100%;
+  max-width: 100%;
+
+  .swiper-slide {
+    width: auto;
+    height: var(--bk-card-height);
+  }
+}

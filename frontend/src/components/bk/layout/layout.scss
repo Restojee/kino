@@ -1,0 +1,134 @@
+@import "../../../styles/mixins";
+
+.Layout {
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: var(--bk-page-width);
+  background: var(--bk-color-page-bg);
+  font-family: var(--bk-font-family);
+  color: var(--bk-color-text-secondary);
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+
+  &__hero {
+    position: relative;
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  &__hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("/assets/bk/clouds-bg.png");
+    background-size: 100% auto;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    filter: grayscale(1) contrast(1.1);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__hero-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 0 33px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--bk-spacing-24) 0 0;
+    gap: var(--bk-spacing-24);
+  }
+
+  &__top-right {
+    display: flex;
+    align-items: center;
+    gap: var(--bk-spacing-18);
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  &__pusheen {
+    position: absolute;
+    right: 60px;
+    top: 60px;
+    width: 340px;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__mobile-header {
+    display: none;
+    flex-direction: column;
+    padding: var(--bk-spacing-15) var(--bk-spacing-18);
+    gap: var(--bk-spacing-10);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  &__mobile-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--bk-spacing-10);
+  }
+
+  &__mobile-spacer {
+    width: 1px;
+    height: 1px;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 33px 40px;
+    gap: var(--bk-spacing-18);
+  }
+
+  @include breakpoint("md") {
+    min-width: 0;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    &__hero {
+      display: none;
+    }
+
+    &__mobile-header {
+      display: flex;
+    }
+
+    &__pusheen {
+      display: none;
+    }
+
+    &__content {
+      width: 100%;
+      padding: var(--bk-spacing-10) var(--bk-spacing-8) var(--bk-spacing-15);
+    }
+  }
+
+  @include breakpoint("sm") {
+    &__content {
+      padding: var(--bk-spacing-6) var(--bk-spacing-4) var(--bk-spacing-10);
+    }
+  }
+
+  @include breakpoint("xs") {
+    &__content {
+      padding: var(--bk-spacing-4) var(--bk-spacing-2) var(--bk-spacing-8);
+    }
+  }
+}

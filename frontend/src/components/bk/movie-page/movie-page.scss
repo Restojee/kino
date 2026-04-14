@@ -1,0 +1,94 @@
+@import "../../../styles/mixins";
+
+.MoviePage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &__stage {
+    position: relative;
+    margin: 0 auto;
+    padding: 40px 0 80px;
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+  }
+
+  &__poster {
+    flex: 0 0 auto;
+    width: 340px;
+    height: 500px;
+    border-radius: 20px;
+    background-color: #f5f3f8;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 30px 60px rgba(38, 35, 58, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+    position: sticky;
+    top: 40px;
+  }
+
+  &__info {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__reviews {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0 64px;
+    width: 100%;
+  }
+
+  &__backdrop,
+  &__backdrop-image,
+  &__backdrop-gradient {
+    display: none;
+  }
+
+  &__empty {
+    padding: 120px 24px;
+    text-align: center;
+    font-size: 24px;
+    color: #736f80;
+  }
+
+  @include breakpoint("md") {
+    &__stage {
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 60px;
+      gap: 28px;
+    }
+
+    &__poster {
+      position: static;
+      width: 260px;
+      height: 390px;
+    }
+
+    &__info {
+      width: 100%;
+      max-width: 720px;
+    }
+  }
+
+  @include breakpoint("md") {
+    &__stage {
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    &__poster {
+      width: 200px;
+      height: 300px;
+    }
+
+    &__info {
+      max-width: 100%;
+    }
+  }
+}

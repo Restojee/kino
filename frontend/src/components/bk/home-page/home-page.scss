@@ -1,0 +1,42 @@
+@import "../../../styles/mixins";
+
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bk-spacing-18);
+
+  &__categories {
+    margin-top: var(--bk-spacing-18);
+  }
+
+  &__movies {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bk-spacing-18);
+    min-width: 0;
+  }
+
+  &__quotes {
+    margin-top: var(--bk-spacing-24);
+  }
+
+  &__grid {
+    margin-top: var(--bk-spacing-24);
+  }
+
+  @include breakpoint("md") {
+    gap: var(--bk-spacing-15);
+
+    &__categories {
+      margin-top: 0;
+    }
+
+    &__quotes {
+      margin-top: var(--bk-spacing-15);
+    }
+
+    &__grid {
+      margin-top: var(--bk-spacing-15);
+    }
+  }
+}

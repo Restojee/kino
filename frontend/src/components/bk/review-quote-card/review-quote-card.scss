@@ -1,0 +1,117 @@
+@import "../../../styles/mixins";
+
+.ReviewQuoteCard {
+  width: 544px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--bk-spacing-15);
+  flex-shrink: 0;
+
+  &__title {
+    font-family: var(--bk-font-family);
+    font-size: var(--bk-font-size-h2);
+    font-weight: var(--bk-font-weight-semibold);
+    color: var(--bk-color-text-secondary);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  &__body {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border: 3px dashed var(--bk-color-review-card-border);
+    border-radius: var(--bk-radius-lg);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  &__cover {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--bk-color-review-card-bg);
+    z-index: 1;
+  }
+
+  &__quote-box {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--bk-spacing-24);
+  }
+
+  &__quote-text {
+    margin: 0;
+    text-align: center;
+    font-family: var(--bk-font-family);
+    font-size: var(--bk-font-size-quote);
+    font-weight: var(--bk-font-weight-semibold);
+    color: var(--bk-color-text-secondary);
+    line-height: 1.2;
+  }
+
+  &__credit {
+    position: absolute;
+    right: var(--bk-spacing-18);
+    bottom: var(--bk-spacing-10);
+    z-index: 3;
+    margin: 0;
+    font-family: var(--bk-font-family);
+    font-size: var(--bk-font-size-credit);
+    font-weight: var(--bk-font-weight-regular);
+    color: var(--bk-color-text-quote-credit);
+  }
+
+  @include breakpoint("lg") {
+    width: 420px;
+  }
+
+  @include breakpoint("md") {
+    width: 260px;
+    gap: var(--bk-spacing-6);
+
+    &__title-label {
+      display: none;
+    }
+
+    &__body {
+      border-width: 2px;
+      border-radius: var(--bk-radius-md);
+    }
+
+    &__quote-box {
+      padding: var(--bk-spacing-8);
+    }
+
+    &__quote-text {
+      line-height: 1.35;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    &__credit {
+      right: var(--bk-spacing-6);
+      bottom: var(--bk-spacing-4);
+    }
+  }
+
+  @include breakpoint("sm") {
+    width: 200px;
+  }
+}

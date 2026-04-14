@@ -1,0 +1,33 @@
+$bk-breakpoints: (
+        "xs": 480px,
+        "sm": 640px,
+        "md": 1280px,
+        "lg": 1440px,
+        "xl": 16000px,
+        "xxl": 1920px,
+);
+
+@function bp($name) {
+  @if not map-has-key($bk-breakpoints, $name) {
+    @error 'Unknown breakpoint: #{$name}. Available: #{map-keys($bk-breakpoints)}.';
+  }
+  @return map-get($bk-breakpoints, $name);
+}
+
+@mixin breakpoint($name) {
+  @media (max-width: #{bp($name) - 1px}) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($name) {
+  @media (min-width: #{bp($name)}) {
+    @content;
+  }
+}
+
+@mixin breakpoint-between($from, $to) {
+  @media (min-width: #{bp($from)}) and (max-width: #{bp($to) - 1px}) {
+    @content;
+  }
+}

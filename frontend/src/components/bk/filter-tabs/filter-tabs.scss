@@ -1,0 +1,63 @@
+@import "../../../styles/mixins";
+
+.FilterTabs {
+  display: flex;
+  align-items: center;
+  gap: var(--bk-spacing-18);
+  height: 36px;
+  width: 100%;
+  min-width: 0;
+
+  &__tab {
+    flex: 0 0 auto;
+    height: 36px;
+    padding: var(--bk-spacing-6) var(--bk-spacing-15);
+    border: none;
+    border-radius: var(--bk-radius-md);
+    background: transparent;
+    color: var(--bk-color-text-secondary);
+    font-family: var(--bk-font-family);
+    font-size: var(--bk-font-size-tab);
+    font-weight: var(--bk-font-weight-semibold);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background var(--transition-base),
+    color var(--transition-base);
+
+    &_active {
+      background: var(--bk-color-primary);
+      color: var(--bk-color-text-primary);
+      padding: var(--bk-spacing-6) var(--bk-spacing-20);
+    }
+
+    &:hover:not(.FilterTabs__tab_active) {
+      background: rgba(252, 133, 153, 0.12);
+    }
+  }
+
+  @include breakpoint("md") {
+    height: 25px;
+    gap: 12px;
+
+    &.swiper {
+      overflow: hidden;
+      touch-action: pan-x;
+    }
+
+    .swiper-slide {
+      width: auto !important;
+    }
+
+    &__tab {
+      padding: 4px 10px;
+      font-size: 14px;
+      height: 25px;
+      border-radius: 10px;
+      white-space: nowrap;
+
+      &_active {
+        padding: 4px 14px;
+      }
+    }
+  }
+}

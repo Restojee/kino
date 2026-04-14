@@ -1,0 +1,104 @@
+.UiRichEditor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__host {
+    min-height: 140px;
+  }
+
+  .ql-toolbar.ql-snow {
+    border: 1px solid #ede9f0;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    background: #faf9fb;
+    padding: 10px 12px;
+    font-family: var(--bk-font-family);
+
+    .ql-stroke {
+      stroke: #736f80;
+    }
+
+    .ql-fill {
+      fill: #736f80;
+    }
+
+    .ql-picker-label {
+      color: #736f80;
+    }
+
+    button:hover .ql-stroke,
+    .ql-picker-label:hover .ql-stroke {
+      stroke: var(--bk-color-primary);
+    }
+
+    button:hover .ql-fill {
+      fill: var(--bk-color-primary);
+    }
+
+    .ql-active .ql-stroke {
+      stroke: var(--bk-color-primary);
+    }
+
+    .ql-active .ql-fill {
+      fill: var(--bk-color-primary);
+    }
+
+    .ql-active .ql-picker-label {
+      color: var(--bk-color-primary);
+    }
+  }
+
+  .ql-container.ql-snow {
+    border: 1px solid #ede9f0;
+    border-top: none;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    background: #ffffff;
+    font-family: var(--bk-font-family);
+    font-size: 15px;
+    color: #26233a;
+    min-height: 140px;
+  }
+
+  .ql-editor {
+    min-height: 140px;
+    padding: 14px 16px;
+    line-height: 1.55;
+
+    &.ql-blank::before {
+      color: #9a95a6;
+      font-style: normal;
+      font-family: var(--bk-font-family);
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 8px 0 4px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 8px 0 4px;
+    }
+
+    p {
+      margin: 0 0 8px;
+    }
+
+    blockquote {
+      border-left: 3px solid var(--bk-color-primary);
+      padding: 4px 12px;
+      color: #736f80;
+      font-style: italic;
+      margin: 8px 0;
+    }
+
+    a {
+      color: var(--bk-color-primary);
+      text-decoration: underline;
+    }
+  }
+}

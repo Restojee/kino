@@ -1,0 +1,118 @@
+@import "../../../styles/mixins";
+
+.MovieReviews {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background: var(--bk-color-review-card-bg);
+    border: 3px dashed var(--bk-color-review-card-border);
+    border-radius: var(--bk-radius-lg);
+  }
+
+  &__form-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__icon {
+    display: inline-flex;
+    color: var(--bk-color-primary);
+  }
+
+  &__form-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 16px;
+    align-items: flex-end;
+
+    @include breakpoint("sm") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__list-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__review-body {
+    font-family: var(--bk-font-family);
+    font-size: var(--bk-font-size-card-title);
+    line-height: 1.6;
+    color: #26233a;
+
+    blockquote {
+      border-left: 3px solid var(--bk-color-primary);
+      padding: var(--bk-spacing-4) var(--bk-spacing-10);
+      color: #736f80;
+      font-style: italic;
+      margin: var(--bk-spacing-6) 0;
+    }
+  }
+
+  @include breakpoint("sm") {
+    gap: var(--bk-spacing-15);
+    padding: var(--bk-spacing-6);
+
+    &__form {
+      padding: var(--bk-spacing-6);
+      gap: var(--bk-spacing-4);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--bk-radius-sm);
+    }
+    &__form-header {
+      gap: var(--bk-spacing-6);
+    }
+    &__field {
+      gap: var(--bk-spacing-4);
+    }
+    &__list {
+      gap: var(--bk-spacing-8);
+    }
+    &__list-items {
+      gap: var(--bk-spacing-8);
+    }
+  }
+
+  @include breakpoint("xs") {
+    padding: var(--bk-spacing-4);
+
+    &__form {
+      padding: var(--bk-spacing-4);
+      gap: var(--bk-spacing-2);
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "../../../styles/mixins";
+
+.CategoryList {
+  display: flex;
+  gap: var(--bk-spacing-18);
+  width: 100%;
+  height: var(--bk-category-h);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > * {
+    flex: 0 0 auto;
+    min-width: 215px;
+    scroll-snap-align: start;
+  }
+
+  @include breakpoint("md") {
+    gap: var(--bk-spacing-10);
+    height: 72px;
+    padding-bottom: 4px;
+
+    > * {
+      width: 140px;
+      min-width: 140px;
+      height: 72px;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.ReviewList {
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}

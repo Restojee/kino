@@ -1,0 +1,104 @@
+.UiButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family: var(--bk-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  max-height: min-content;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: background 0.15s ease,
+  color 0.15s ease,
+  border-color 0.15s ease,
+  box-shadow 0.15s ease,
+  transform 0.15s ease;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &_icon-only {
+    padding: 0;
+  }
+
+  &_full-width {
+    width: 100%;
+  }
+
+  &_variant-primary {
+    background: var(--bk-color-primary);
+    color: #ffffff;
+    border-color: var(--bk-color-primary);
+    box-shadow: 0 6px 16px rgba(252, 133, 153, 0.28);
+
+    &:hover:not(:disabled) {
+      background: #fa6a82;
+      border-color: #fa6a82;
+      box-shadow: 0 8px 20px rgba(252, 133, 153, 0.35);
+    }
+  }
+
+  &_variant-secondary {
+    background: #f5f3f8;
+    color: #26233a;
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      background: #ebe6f0;
+    }
+  }
+
+  &_variant-danger {
+    background: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.28);
+
+    &:hover:not(:disabled) {
+      background: #dc2626;
+      border-color: #dc2626;
+    }
+  }
+
+  &_variant-dark {
+    background: linear-gradient(135deg, #626071 0%, #4a4858 100%);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 6px 18px rgba(98, 96, 113, 0.28);
+
+    &:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(98, 96, 113, 0.36);
+      filter: brightness(1.08);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+  }
+
+  &_variant-ghost {
+    background: transparent;
+    color: #9a95a6;
+    border-color: transparent;
+    padding: 6px;
+
+    &:hover:not(:disabled) {
+      background: #f5f3f8;
+      color: #26233a;
+    }
+  }
+}

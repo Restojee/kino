@@ -1,0 +1,157 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  user
+  admin
+}
+
+enum ExternalSource {
+  tmdb
+  kinopoisk
+  manual
+}
+
+enum WatchStatus {
+  none
+  watching
+  watched
+  skipped
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         UserRole @default(user)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  reviews        Review[]
+  invitesCreated Invite[] @relation("InvitesCreated")
+  invitesUsed    Invite[] @relation("InvitesUsed")
+  movieStates    UserMovieState[]
+}
+
+model Invite {
+  id          String    @id @default(uuid())
+  token       String    @unique
+  email       String?
+  role        UserRole  @default(user)
+  createdById String
+  createdBy   User      @relation("InvitesCreated", fields: [createdById], references: [id], onDelete: Cascade)
+  usedById    String?
+  usedBy      User?     @relation("InvitesUsed", fields: [usedById], references: [id], onDelete: SetNull)
+  usedAt      DateTime?
+  expiresAt   DateTime?
+  createdAt   DateTime  @default(now())
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  name      String
+  image     String?
+  createdAt DateTime @default(now())
+
+  movies Movie[]
+}
+
+model Genre {
+  id         String  @id @default(uuid())
+  slug       String  @unique
+  name       String
+  externalId String?
+
+  movies MovieGenre[]
+}
+
+model Movie {
+  id             String          @id @default(uuid())
+  categoryId     String
+  category       Category        @relation(fields: [categoryId], references: [id])
+  title          String
+  originalTitle  String?
+  description    String?
+  year           Int?
+  releaseDate    DateTime?
+  runtimeMinutes Int?
+  country        String?
+  director       String?
+  posterUrl      String?
+  backdropUrl    String?
+  trailerUrl     String?
+  ageRating      String?
+
+  imdbRating       Decimal? @db.Decimal(3, 1)
+  imdbVotes        Int?
+  kinopoiskRating  Decimal? @db.Decimal(3, 1)
+  kinopoiskVotes   Int?
+  tmdbRating       Decimal? @db.Decimal(3, 1)
+  tmdbVotes        Int?
+  userRating       Decimal? @db.Decimal(3, 1)
+  userRatingVotes  Int      @default(0)
+
+  externalSource ExternalSource?
+  externalId     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  genres      MovieGenre[]
+  reviews     Review[]
+  userStates  UserMovieState[]
+
+  @@unique([externalSource, externalId])
+  @@index([categoryId])
+}
+
+model MovieGenre {
+  movieId String
+  genreId String
+  movie   Movie  @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  genre   Genre  @relation(fields: [genreId], references: [id], onDelete: Cascade)
+
+  @@id([movieId, genreId])
+  @@index([genreId])
+}
+
+model UserMovieState {
+  userId      String
+  movieId     String
+  isWatched   Boolean     @default(false)
+  watchStatus WatchStatus @default(none)
+  isFavorite  Boolean     @default(false)
+  userScore   Int?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  user  User  @relation(fields: [userId],  references: [id], onDelete: Cascade)
+  movie Movie @relation(fields: [movieId], references: [id], onDelete: Cascade)
+
+  @@id([userId, movieId])
+  @@index([movieId])
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  movieId   String
+  userId    String
+  body      String
+  score     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  movie Movie @relation(fields: [movieId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([movieId, userId])
+  @@index([movieId])
+}

@@ -1,0 +1,109 @@
+$src-border: #ede9f0;
+$src-soft: #f5f3f8;
+$src-accent: #626071;
+$src-text: #26233a;
+$src-muted: #736f80;
+$src-soft2: #9a95a6;
+
+.SearchResultCard {
+  display: flex;
+  gap: 16px;
+  text-align: left;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease,
+  transform 0.15s ease;
+
+  &:hover {
+    background: #ece8f0;
+    transform: translateY(-1px);
+  }
+
+  &_added {
+    opacity: 0.7;
+    cursor: default;
+
+    &:hover {
+      transform: none;
+      background: #ffffff;
+    }
+  }
+
+  &__poster {
+    flex: 0 0 auto;
+    width: 72px;
+    height: 108px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: $src-soft;
+  }
+
+  &__poster-placeholder {
+    flex: 0 0 auto;
+    width: 72px;
+    height: 108px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $src-soft;
+    border-radius: 8px;
+    font-size: 28px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  &__title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+    color: $src-text;
+  }
+
+  &__badge {
+    padding: 2px 8px;
+    background: $src-soft;
+    color: $src-muted;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 999px;
+  }
+
+  &__meta {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: $src-muted;
+    flex-wrap: wrap;
+  }
+
+  &__original {
+    font-style: italic;
+    color: $src-soft2;
+  }
+
+  &__rating {
+    color: $src-accent;
+    font-weight: 700;
+  }
+
+  &__desc {
+    font-size: 13px;
+    color: $src-muted;
+    line-height: 1.5;
+  }
+}

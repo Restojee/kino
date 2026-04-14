@@ -1,0 +1,32 @@
+@import "../../../styles/mixins";
+
+.HeaderActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  &__user {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px 6px 6px;
+    background: #ffffff;
+    border: 1px solid #ede9f0;
+    border-radius: 999px;
+  }
+
+  &__user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #26233a;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @include breakpoint("md") {
+    gap: 8px;
+    margin-left: auto;
+  }
+}

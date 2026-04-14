@@ -1,0 +1,14 @@
+.UiSpinner {
+  display: inline-block;
+  border: 2px solid rgba(252, 133, 153, 0.25);
+  border-top-color: var(--bk-color-primary);
+  border-radius: 50%;
+  animation: ui-spinner-rotate 0.8s linear infinite;
+  box-sizing: border-box;
+}
+
+@keyframes ui-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

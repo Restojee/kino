@@ -1,0 +1,92 @@
+.UiChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  font-family: var(--bk-font-family);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--bk-color-text-secondary);
+  background: transparent;
+  cursor: default;
+  transition: background 0.15s ease,
+  color 0.15s ease,
+  border-color 0.15s ease;
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  &__label {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  &__remove {
+    appearance: none;
+    margin-left: 2px;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 50%;
+    color: inherit;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+  }
+
+  &_variant-soft {
+    background: #f5f3f8;
+    color: #626071;
+  }
+
+  &_variant-outline {
+    background: transparent;
+    border-color: #ede9f0;
+    color: #26233a;
+  }
+
+  &_variant-solid {
+    background: #26233a;
+    color: #ffffff;
+  }
+
+  &_clickable {
+    cursor: pointer;
+
+    &:hover {
+      background: #ebe6f0;
+    }
+
+    &.UiChip_variant-outline:hover {
+      background: #f5f3f8;
+    }
+  }
+
+  &_active {
+    background: var(--bk-color-primary);
+    color: #ffffff;
+    border-color: var(--bk-color-primary);
+
+    &:hover {
+      background: #fa6a82;
+      border-color: #fa6a82;
+    }
+
+    .UiChip__remove {
+      &:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+}

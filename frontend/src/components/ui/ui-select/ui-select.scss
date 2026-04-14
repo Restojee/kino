@@ -1,0 +1,52 @@
+.UiSelect {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition: var(--transition-base);
+
+  &:focus-within {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  &__native {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: var(--spacing-md);
+    padding-right: var(--spacing-xxxl);
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: var(--font-md);
+    font-family: inherit;
+    color: var(--color-text);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-md) center;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__adornment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding-right: var(--spacing-sm, 6px);
+  }
+
+  &_has-trailing &__native {
+    background-image: none;
+    padding-right: var(--spacing-sm, 6px);
+  }
+}
